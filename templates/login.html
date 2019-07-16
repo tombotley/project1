@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block navs %}
+    {% if session["username"] %}
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('search')}}">Search</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('myreviews')}}">My reviews</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('logout')}}">Logout</a></li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Sign up</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div id="form-page">
+        <div id="form-container">
+            <form id="form-style" action="{{url_for('login')}}" method="post">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="flash_message">{{ message }}</p>
+                        {% endfor %}
+                    {% else %}
+                        <h2>Log in to TomePage</h2>
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <input class="form-control" name="username" type="text" placeholder="enter username" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="password" type="password" placeholder="enter password" required>
+                </div>
+                <button type="submit" class="btn btn-dark">Log in</button>
+                {% if error %}
+                    <p class=error><strong>{{ error }}</strong> 
+                {% endif %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sign up
+{% endblock %}
+
+{% block navs %}
+    {% if session["username"] %}
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('search')}}">Search</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('myreviews')}}">My reviews</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('logout')}}">Logout</a></li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Sign up</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div id="form-page">
+        <div id="form-container">
+            <form id="form-style" action="{{url_for('register')}}" method="post">
+                <h2>Sign up to TomePage</h2>
+                <div class="form-group">
+                    <input class="form-control" name="email" type="email" placeholder="enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="username" type="text" placeholder="choose a username" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="password" type="password" placeholder="choose a password" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="passwordcheck" type="password" placeholder="confirm password" required>
+                </div>
+                <button type="submit" class="btn btn-dark">Sign up!</button>    
+                {% if error %}
+                    <p class=error><strong>{{ error }}</strong> 
+                {% endif %}
+            </form>
+{% endblock %}

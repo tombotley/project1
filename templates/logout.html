@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Goodbye!
+{% endblock %}
+
+{% block navs %}
+    {% if session["username"] %}
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('search')}}">Search</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('myreviews')}}">My reviews</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('logout')}}">Logout</a></li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Sign up</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div id="message-page">
+        <div id="message-container">
+            <div class="card border border-dark" id="message-card">
+                <div class="card-header" id="message-header">
+                    <h3>Goodbye!</h3>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-text">You are now logged out. Please visit us again soon!</h5> 
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

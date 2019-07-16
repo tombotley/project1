@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome to Tomepage
+{% endblock %}
+
+{% block navs %}
+    {% if session["username"] %}
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('search')}}">Search</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('myreviews')}}">My reviews</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('logout')}}">Logout</a></li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Sign up</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div id="index-page">
+        <div id="index-container">
+            <div class="card border border-dark" id="index-card">
+                <div class="card-header" id="index-header">
+                    <h3>Welcome to <br>TomePage Book Reviews</h3>
+                </div>
+                {% if session["username"] %}
+                    <div class="card-body">
+                        <h5 class="card-text">You are logged on as</h5> 
+                        <h5>{{ session["username"] }}</h5>
+                        <br>
+                        <a href="/login" class="btn btn-dark">Change user</a>
+                        <a href="/search" class="btn btn-dark">Continue</a>
+                    </div>
+                {% else %}
+                    <div class="card-body">
+                        <h5 class="card-text">Please login to begin.</h5> 
+                        <h5>No account? Sign up today!</h5>
+                        <br>
+                        <a href="/login" class="btn btn-dark">Log in</a>
+                        <a href="/register" class="btn btn-dark">Sign up</a>
+                    </div>
+                {% endif %}
+            </div>
+            <div id="quotes">
+                <p class="quote">“I must say I find television very educational. The minute somebody turns it on, I go to the library and read a good book.” – Groucho Marx</p>
+                <p class="quote">“Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can be beaten.” – Neil Gaiman</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+                        

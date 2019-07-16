@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search TomePage
+{% endblock %}
+
+{% block navs %}
+    {% if session["username"] %}
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('search')}}">Search</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('myreviews')}}">My reviews</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('logout')}}">Logout</a></li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Sign up</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div id="form-page">
+        <div id="form-container">
+            <form id="form-style" action="{{ url_for('search') }}" method="post">
+                <h1>Hi {{ session["username"] }}!</h1>
+                <h2>Search the book database</h2>
+                <div class="form-group">
+                    <p>Search for an ISBN, title or author</p>
+                    <input class="form-control" type="text" name="search_value" placeholder="enter search term" required>
+                </div>    
+                <button type="submit" class="btn btn-dark">Search</button>
+                {% if error %}
+                    <p class=error><strong>{{ error }}</strong> 
+                {% endif %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

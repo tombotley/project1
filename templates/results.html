@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search results
+{% endblock %}
+
+{% block navs %}
+    {% if session["username"] %}
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('search')}}">Search</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('myreviews')}}">My reviews</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('logout')}}">Logout</a></li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Sign up</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {% if results %}
+        <div id="results-page">
+            <div id="results-container">
+                <ul class="list-group" id="results-list">
+                    <h2>Search results:</h2>
+                    {% for result in results %}
+                        <li class="list-group-item">
+                            <a href="{{url_for('book', isbn=result.book_isbn)}}">"{{ result.book_title }}" - {{ result.book_author }}, {{ result.book_year }}</a>
+                        </li>
+                    {% endfor %}
+                    <li class="list-group-item">
+                        <a href="{{url_for('search')}}">Search again</a>
+                    </li>
+                </ul> 
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

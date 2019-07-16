@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My reviews
+{% endblock %}
+
+{% block navs %}
+    {% if session["username"] %}
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('search')}}">Search</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('myreviews')}}">My reviews</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('logout')}}">Logout</a></li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Sign up</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div id="detail-page">
+        <div id="detail-container">
+            <div id="reviews-div">
+                <ul class="list-group">
+                    <li class="list-group-item detail-heading bg-info">Reviews by {{ session["username"] }}</li>
+                    {% if reviews %}
+                        {% for review in reviews %}
+                            <li class="list-group-item detail">
+                                <p>Title: <a href="{{url_for('book', isbn=review.book_isbn)}}">{{ review.book_title }}</a></p>
+                                <p>Author: {{ review.book_author }}</p>
+                                <p>Review: {{ review.review_text }}</p>
+                                <p>Rating: {{ review.review_rating }}/5</p>     
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="list-group-item detail">You haven't left any reviews yet! <a href="/search">Find a book to review.</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ book.book_title }} reviews
+{% endblock %}
+
+{% block navs %}
+    {% if session["username"] %}
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('search')}}">Search</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('myreviews')}}">My reviews</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('logout')}}">Logout</a></li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Sign up</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div id="detail-page">
+        <div id="detail-container">
+            <div id="reviewspage-details">
+                <ul class="list-group details">
+                    <li class="list-group-item detail-heading bg-info">Book details</li>
+                    <li class="list-group-item detail">Title: {{ book.book_title }}</li>
+                    <li class="list-group-item detail">Author: {{ book.book_author }}</li>
+                    <li class="list-group-item detail">Year: {{ book.book_year }}</li>  
+                    <li class="list-group-item detail">ISBN: {{ book.book_isbn }}</li>
+                </ul>
+            </div>
+            <div id="reviews-div">
+                <ul class="list-group">
+                    <li class="list-group-item detail-heading bg-info">TomePage member reviews</li>
+                    <li class="list-group-item stats">Reviews: {{ rev_count }}</li>
+                    <li class="list-group-item stats">Avg. rating: {{ rev_avg }}</li>               
+                    {% for review in reviews %}
+                        <li class="list-group-item detail">
+                            <p>Reviewed by: <a href="{{url_for('reviewedby', username=review.user_username)}}">{{ review.user_username }}</a></p>
+                            <p>Review: {{ review.review_text }}</p>
+                            <p>Rating: {{ review.review_rating }}/5</p>     
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+    

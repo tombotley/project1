@@ -1,0 +1,292 @@
+$pagebg-colour: white;
+$headerbg-colour: darkcyan;
+$headingtext-colour: white;
+$cardbg-colour: white;
+$infotext-colour: darkcyan;
+$formbg-colour: lightgray;
+$quote-colour: white;
+$statbg-colour: lightgray;
+$stat-colour: white;
+$footertext-colour: cyan;
+
+/* standard page styling */
+
+body {
+  font-family: Palatino, 'Palatino Linotype', serif;
+  position: relative;
+}
+
+#page-container {
+  margin: auto;
+  position: relative;
+  padding-bottom: 25px; /* needed? */
+  clear:both; /* needed? */
+}
+
+#page-content {
+    margin-bottom: -25px; /* needed? */
+}
+
+#page-style {
+    width: 100%;
+    min-height: 100vh;
+    background-color: $pagebg-colour;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+}
+
+a.link-nowrap {
+  white-space: nowrap; }
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  color: $footertext-colour;
+  text-align: right;
+  padding-right: 10px;
+}
+
+
+/* index page styling */
+
+.index-page {
+    background-image: url("books_background_v2.svg");
+    background-position: left center;  
+}
+
+#index-container {
+    display: grid;
+    opacity: .9;
+    width: 50%;
+    padding: 25px 10px;
+}
+
+#index-card {
+    background-color: $cardbg-colour;
+    margin: 50px 25px 50px 50px;
+    width: 40%;
+    min-width: 400px;
+}
+
+#index-header { 
+    background-color: $headerbg-colour;
+}
+
+#index-card h3 {
+  color: $headingtext-colour;
+  font-weight: bold;
+}
+
+#index-card h5 {
+  color: $infotext-colour;
+  font-weight: bold;
+}
+
+#index-card a {
+  margin-right: 5px;
+}
+
+#quotes {
+    margin: 25px 25px;    
+}
+
+.quote {
+    padding: 25px;
+    color: $quote-colour;
+    font-family: 'Bad Script', cursive;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+
+/* form styling for login, register and search */
+
+.form-page {
+    background-image: url("books_background.svg");
+    background-position: center; 
+}
+
+#form-container {
+    opacity: .9;
+    width: 60%;
+}
+
+#form-style {
+    background-color: $formbg-colour;
+    border-radius: 25px;
+    position: absolute;
+    padding: 20px;
+    margin: 0 auto;
+    width: 40%;
+    min-width: 300px;
+    top: 15%;
+    left: 10%;
+}
+
+#form-style h1 {
+    color: $headingtext-colour;
+    font-weight: bold;
+}
+
+#form-style h2 {
+    color: $headingtext-colour;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+#form-style p {
+    color: $infotext-colour;
+    font-weight: bold;
+}
+
+
+/* search results page styling */
+
+.results-page {
+    margin: auto;
+    padding-bottom: 100px;
+    background-image: url("books_background.svg");
+    background-position: center; 
+}
+
+#results-container {
+    padding: 50px;
+    opacity: .9;
+}
+
+#results-list {
+    width: 50%;
+    min-width: 450px;
+    padding: 20px;
+    margin-left: 25px;
+}
+
+#results-list a {
+    color: $infotext-colour;
+}
+
+#results-list h2 {
+    color: $headingtext-colour;
+}
+
+
+/* book detail and reviews page styling */
+
+.detail-page {
+    margin: auto;
+    padding-bottom: 100px;
+    background-image: url("books_background.svg");
+    background-position: center; 
+}
+
+#detail-container {
+    padding: 50px;
+    opacity: .9;
+}
+
+#reviewspage-details {
+    padding: 15px;
+    width: 350px;
+}
+
+.details {
+    min-width: 350px;
+}
+
+.detail-heading {
+    color: $headingtext-colour;
+    font-weight: bold;
+}
+
+.detail {
+    color: $infotext-colour;
+}
+
+.detail p {
+    color: $infotext-colour;
+}
+
+.stats {
+    color: $stat-colour;
+    font-weight: bold;
+    background-color: $statbg-colour;
+}
+
+#review-form {
+    background-color: $formbg-colour;
+    border-radius: 25px;
+    padding: 20px;
+    margin: 15px;
+}
+
+#review-form h2 {
+    padding-bottom: 5px;
+    color: $headingtext-colour;
+    font-weight: bold;
+}
+
+#review-form textarea, select {
+    margin-bottom: 15px;
+}
+
+#review-form select {
+    width: 250px;
+    color: $infotext-colour;
+}
+
+#outer-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#inner-grid {
+  display: grid;  
+  grid-template-rows: 300px 200px;  
+}
+
+#inner-grid div {
+    margin: 15px;
+}
+
+#reviews-div {
+    flex: 1;
+    min-width: 400px;
+    margin: 15px;
+    padding-bottom: 25px;
+}
+
+
+/* message page styling (errors, review submitted and logged out) */
+
+.message-page {
+    margin: auto;
+    background-image: url("books_background.svg");
+    background-position: center; 
+}
+
+#message-container {
+    padding: 50px;
+    width: 40%;
+}
+
+#message-card {
+    background-color: $cardbg-colour;
+    min-width: 350px;
+}
+
+#message-header { 
+    background-color: $headerbg-colour;
+}
+
+#message-card h3 {
+  color: $headingtext-colour;
+  font-weight: bold;
+}
+
+#message-card h5, a {
+  color: $infotext-colour;
+  font-weight: bold;
+}

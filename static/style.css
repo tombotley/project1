@@ -1,0 +1,311 @@
+/* standard page styling */
+
+body {
+  font-family: Palatino, 'Palatino Linotype', serif;
+  position: relative;
+}
+
+#page-container {
+  margin: auto;
+  position: relative;
+  padding-bottom: 25px;
+  clear:both;
+}
+
+#page-content {
+    margin-bottom: -25px;
+}
+
+a.link-nowrap {
+  white-space: nowrap; }
+
+.error {
+    padding-top: 5px;
+    color: white;
+}
+
+.flash_message {
+    color: white;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  color: cyan;
+  text-align: right;
+  padding-right: 10px;
+}
+
+
+/* index page styling */
+
+#index-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    background-image: url("books_background_v2.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left center; 
+}
+
+#index-container {
+    display: grid;
+    opacity: .9;
+    width: 50%;
+    padding: 25px 10px;
+}
+
+#index-card {
+    background-color: white;
+    margin: 50px 25px 50px 50px;
+    width: 40%;
+    min-width: 400px;
+}
+
+#index-header { 
+    background-color: darkcyan;
+}
+
+#index-card h3 {
+  color: white;
+  font-weight: bold;
+}
+
+#index-card h5 {
+  color: darkcyan;
+  font-weight: bold;
+}
+
+#index-card a {
+  margin-right: 5px;
+}
+
+#quotes {
+    margin: 25px 25px;    
+}
+
+.quote {
+    padding: 25px;
+    color: white;
+    font-family: 'Bad Script', cursive;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+
+/* form styling for login, register and search */
+
+#form-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    background-image: url("books_background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+
+#form-container {
+    opacity: .9;
+    width: 60%;
+}
+
+#form-style {
+    background-color: lightgray;
+    border-radius: 25px;
+    position: absolute;
+    padding: 20px;
+    margin: 0 auto;
+    width: 40%;
+    min-width: 300px;
+    top: 15%;
+    left: 10%;
+}
+
+#form-style h1 {
+    color: white;
+    font-weight: bold;
+}
+
+#form-style h2 {
+    color: white;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+#form-style p {
+    color: darkcyan;
+    font-weight: bold;
+}
+
+
+/* search results page styling */
+
+#results-page {
+    width: 100%;
+    margin: auto;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    background-color: white;
+    background-image: url("books_background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+
+#results-container {
+    padding: 50px;
+    opacity: .9;
+}
+
+#results-list {
+    width: 50%;
+    min-width: 450px;
+    padding: 20px;
+    margin-left: 25px;
+}
+
+#results-list a {
+    color: darkcyan;
+}
+
+#results-list h2 {
+    color: white;
+}
+
+
+/* book detail and reviews page styling */
+
+#detail-page {
+    width: 100%;
+    margin: auto;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    background-color: white;
+    background-image: url("books_background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+
+#detail-container {
+    padding: 50px;
+    opacity: .9;
+}
+
+#reviewspage-details {
+    padding: 15px;
+    width: 350px;
+}
+
+.details {
+    min-width: 350px;
+}
+
+.detail-heading {
+    color: white;
+    font-weight: bold;
+}
+
+.detail {
+    color: darkcyan;
+}
+
+.detail p {
+    color: darkcyan;
+}
+
+.stats {
+    color: white;
+    font-weight: bold;
+    background-color: lightgray;
+}
+
+#review-form {
+    background-color: lightgray;
+    border-radius: 25px;
+    padding: 20px;
+    margin: 15px;
+}
+
+#review-form h2 {
+    padding-bottom: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+#review-form textarea, select {
+    margin-bottom: 15px;
+}
+
+#review-form select {
+    width: 250px;
+    color: darkcyan;
+}
+
+#outer-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#inner-grid {
+  display: grid;  
+  grid-template-rows: 300px 200px;  
+}
+
+#inner-grid div {
+    margin: 15px;
+}
+
+#reviews-div {
+    flex: 1;
+    min-width: 400px;
+    margin: 15px;
+    padding-bottom: 25px;
+}
+
+
+/* message page styling (errors, review submitted and logged out) */
+
+#message-page {
+    width: 100%;
+    margin: auto;
+    min-height: 100vh;
+    background-color: white;
+    background-image: url("books_background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+
+#message-container {
+    padding: 50px;
+    width: 40%;
+}
+
+#message-card {
+    background-color: white;
+    min-width: 350px;
+}
+
+#message-header { 
+    background-color: darkcyan;
+}
+
+#message-card h3 {
+  color: white;
+  font-weight: bold;
+}
+
+#message-card h5, a {
+  color: darkcyan;
+  font-weight: bold;
+}

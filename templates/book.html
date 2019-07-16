@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ book.book_title }}, {{ book.book_author }}
+{% endblock %}
+
+{% block navs %}
+    {% if session["username"] %}
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('search')}}">Search</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('myreviews')}}">My reviews</a></li>
+        <li class="nav-item">
+            <a class="nav-link link-nowrap" href="{{url_for('logout')}}">Logout</a></li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Sign up</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div id="detail-page">
+        <div id="detail-container">
+            <div id="outer-flex">
+                <div id="inner-grid"> 
+                    <div>
+                        <ul class="list-group details">
+                            <li class="list-group-item detail-heading bg-info">Book details</li>
+                            <li class="list-group-item detail">Title: {{ book.book_title }}</li>
+                            <li class="list-group-item detail">Author: {{ book.book_author }}</li>
+                            <li class="list-group-item detail">Year: {{ book.book_year }}</li>  
+                            <li class="list-group-item detail">ISBN: {{ book.book_isbn }}</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="list-group details">
+                            <li class="list-group-item detail-heading bg-info">Goodreads rating</li>
+                            <li class="list-group-item detail">Ratings count: {{ ratings_count }}</li>
+                            <li class="list-group-item detail">Average rating: {{ average_rating }}</li>       
+                        </ul>
+                    </div>
+                </div>
+                <div id="reviews-div">
+                    <ul class="list-group">
+                        <li class="list-group-item detail-heading bg-info">TomePage member reviews</li>
+                        {% if reviews %}
+                            <li class="list-group-item stats">Reviews: {{ rev_count }}</li>
+                            <li class="list-group-item stats">Avg. rating: {{ rev_avg }}</li>               
+                            {% for review in reviews %}
+                                <li class="list-group-item detail">
+                                    <p>Reviewed by: <a href="{{url_for('reviewedby', username=review.user_username)}}">{{ review.user_username }}</a></p>
+                                    <p>Review: {{ review.review_text }}</p>
+                                    <p>Rating: {{ review.review_rating }}/5</p>     
+                                </li>
+                            {% endfor %}
+                            {% if rev_count > 2 %}
+                                <li class="list-group-item"><a href="{{url_for('reviews', isbn=book.book_isbn)}}" class="detail">See all reviews</a></li>
+                            {% endif %}
+                        {% else %}
+                            <li class="list-group-item detail">No TomePage reviews for this book. Be the first!</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {% if reviewed == false %}
+                <div class="form-group">
+                    <form id="review-form" action="{{url_for('book', isbn=book.book_isbn)}}" method="post">
+                        <h2>Review this book</h2>
+                        <textarea class="form-control" name="review" type="text" placeholder="Leave your thoughts..."></textarea>
+                        <select class="form-control" name="rating" oninvalid="alert('Please select a rating before submitting your review');" required>
+                            <option value="" selected disabled hidden>Give your rating (out of 5)</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <button class="btn btn-dark" type="submit" value="Submit">Submit</button>    
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
