@@ -3,11 +3,17 @@
 Web Programming with Python and JavaScript
 
 Project 1 Books
+
 Screencast presentation: https://youtu.be/mYGERBonF4w
+
 Objectives
+
 •	Become more comfortable with Python.
+
 •	Gain experience with Flask.
+
 •	Learn to use SQL to interact with databases.
+
 
 Requirements
 •	Users should be able to register and login with a username and password.
