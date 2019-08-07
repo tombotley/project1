@@ -16,21 +16,37 @@ Objectives
 
 
 Requirements
+
 •	Users should be able to register and login with a username and password.
+
 •	Logged in users should be able to log out of the site.
-•	Import book details from books.csv with a Python file called import.py (separate from web application) into a PostgreSQL database. 
+
+•	Import book details from books.csv with a Python file called import.py (separate from web application) into a PostgreSQL database.
+
 •	Book search page for logged in users. Users should be able to type in the ISBN, title or author of a book and be presented with a list of matching results including partial matches.
+
 •	When users click on a book from the results of their search they should be taken to a book page, with details about the book: its title, author, publication year, ISBN number, and any reviews that users have left on the website.
+
 •	On the book page, users should be able to submit a review: consisting of a rating on a scale of 1 to 5, as well as a text component to the review where the user can write their opinion about a book. Users should not be able to submit multiple reviews for the same book.
+
 •	On the book page, the average rating and number of ratings the work has received from Goodreads should be displayed if available.
+
 •	API Access: If users make a GET request to the website’s /api/<isbn> route, where <isbn> is an ISBN number, the website should return a JSON response containing the book’s title, author, publication date, ISBN number, review count, and average score. The resulting JSON should follow the format:
+    
 {
+
     "title": "Memory",
+    
     "author": "Doug Lloyd",
+    
     "year": 2015,
+    
     "isbn": "1632168146",
+    
     "review_count": 28,
+    
     "average_score": 5.0
+    
 }
 
 •	If the requested ISBN number isn’t in the database, the website should return a 404 error.
