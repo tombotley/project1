@@ -96,7 +96,7 @@ This is the route used when a review is successfully submitted and renders the r
     
 The reviews route uses the login_required wrapper function so that only users who are logged in are able to access the reviews page. This page is rendered if the user clicks on ‘see all reviews’ on the book.html page (when a book has more than two reviews) or if the route is manually typed into the browser with a valid ISBN passed as the route variable. If an invalid ISBN is manually entered then the function will render error.html with an error message explaining that there were no reviews found for that ISBN. The function uses the ISBN to fetch the book details from the books table and any reviews for that book from the reviews table. The reviews.html is then rendered with the book/review data is passed as arguments.
 
-“/myreviews>”
+“/myreviews”
 
 The myreviews route uses the login_required wrapper function so that only users who are logged in are able to access the myreviews page. This page is rendered if the user clicks on ‘my reviews’ item on their header navigation bar. The function will fetch all reviews left by the current user and pass them as an argument when rendering the reviewedby.html page.
 
