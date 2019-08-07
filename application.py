@@ -1,8 +1,7 @@
 import os
-import json
 import requests
 
-from flask import Flask, session, render_template, url_for, request, flash, redirect, abort, jsonify # have I used all of these?
+from flask import Flask, session, render_template, url_for, request, flash, redirect, jsonify
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -22,7 +21,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Set up database
-engine = create_engine(os.getenv("DATABASE_URL"))
+engine = create_engine(os.getenv("DATABASE_URL"), pool_size=10, max_overflow=20)
 db = scoped_session(sessionmaker(bind=engine))
 
 
@@ -159,7 +158,7 @@ def book(isbn):
     
     # route redirects to login if login_required returns false
     
-    # review count and avergae variable declarations
+    # review count and average variable declarations
     rev_count = None
     rev_avg = None
     
@@ -194,7 +193,7 @@ def book(isbn):
     params = {"key": "a2yG8Km4Ic43fptlWtPw", "isbns": book.book_isbn}
     goodreads_data = requests.get("https://www.goodreads.com/book/review_counts.json", params=params)
     
-    # parse data from goodreads request !!! was this necessary? !!!
+    # parse data from goodreads request
     goodreads_parse = goodreads_data.json()
     
     # retrieve required rating data from json object
