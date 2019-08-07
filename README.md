@@ -62,7 +62,7 @@ Application.py
 
 This is my Python application file. To assist my application I have imported werkzeug.security for password hashing and a login_required wrapper function from my helpers.py file.
 
-I will now explain each of my route decorators and the html pages they render.
+Route decorators
 
 "/"
 
