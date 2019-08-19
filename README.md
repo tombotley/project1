@@ -8,12 +8,15 @@ Screencast presentation: https://youtu.be/mYGERBonF4w
 <br/><br/>
 
 **Objectives**
+•	Create a book review website where users can register, search for books and leave reviews.
 
 •	Become more comfortable with Python.
 
 •	Gain experience with Flask.
 
 •	Learn to use SQL to interact with databases.
+
+•	Use the Goodreads API to include review data from a wider audience and build the websites own API so that users can query book and review data programmatically.
 <br/><br/>
 
 
