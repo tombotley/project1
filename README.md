@@ -7,7 +7,8 @@
 Screencast presentation: https://youtu.be/mYGERBonF4w
 <br/><br/>
 
-**Objectives**<br/>
+**Objectives**
+
 •	Create a book review website where users can register, search for books and leave reviews.
 
 •	Become more comfortable with Python.
