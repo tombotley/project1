@@ -1,13 +1,13 @@
 # Project 1
 
-Web Programming with Python and JavaScript
+**Web Programming with Python and JavaScript**
 
-Project 1 Books
+**Project 1 Books**
 
 Screencast presentation: https://youtu.be/mYGERBonF4w
 <br/><br/>
 
-Objectives
+**Objectives**
 
 •	Become more comfortable with Python.
 
@@ -17,7 +17,7 @@ Objectives
 <br/><br/>
 
 
-Requirements
+**Requirements**
 
 •	Users should be able to register and login with a username and password.
 
@@ -56,7 +56,7 @@ Requirements
 •	Raw SQL commands (as via SQLAlchemy’s execute method) should be used in order to make database queries. SQLAlchemy ORM should not be used for this project.
 <br/><br/>
 
-What I have implemented
+**What I have implemented**
 
 Application.py
 
