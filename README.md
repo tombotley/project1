@@ -5,7 +5,7 @@ Web Programming with Python and JavaScript
 Project 1 Books
 
 Screencast presentation: https://youtu.be/mYGERBonF4w
-<br/>
+<br/><br/>
 
 Objectives
 
@@ -14,7 +14,7 @@ Objectives
 •	Gain experience with Flask.
 
 •	Learn to use SQL to interact with databases.
-<br/>
+<br/><br/>
 
 
 Requirements
@@ -54,7 +54,7 @@ Requirements
 •	If the requested ISBN number isn’t in the database, the website should return a 404 error.
 
 •	Raw SQL commands (as via SQLAlchemy’s execute method) should be used in order to make database queries. SQLAlchemy ORM should not be used for this project.
-<br/>
+<br/><br/>
 
 What I have implemented
 
