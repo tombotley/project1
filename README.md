@@ -5,7 +5,7 @@ Web Programming with Python and JavaScript
 Project 1 Books
 
 Screencast presentation: https://youtu.be/mYGERBonF4w
-
+<br/>
 
 Objectives
 
@@ -14,7 +14,7 @@ Objectives
 •	Gain experience with Flask.
 
 •	Learn to use SQL to interact with databases.
-
+<br/>
 
 
 Requirements
@@ -54,7 +54,7 @@ Requirements
 •	If the requested ISBN number isn’t in the database, the website should return a 404 error.
 
 •	Raw SQL commands (as via SQLAlchemy’s execute method) should be used in order to make database queries. SQLAlchemy ORM should not be used for this project.
-
+<br/>
 
 What I have implemented
 
@@ -84,7 +84,7 @@ The logout route uses the login_required wrapper function so that only users who
 
 The search route uses the login_required wrapper function so that only users who are logged in are able to access the search page. Upon a get request the search.html page is rendered where the user can enter a value with which to search the books table. For post requests (upon submission of search form) the function takes the search value, adds wildcard characters to each end and searches the database for any ISBN, author or title that match or partially match the value. If the number of rows returned is 0 then the search.html page is rendered again with an error message indicating no results were found, else the results.html page is rendered with the search results passed as an argument. Search results are rendered so that each is an anchor element and upon clicking on a particular result the user is taken to the book route and the book’s ISBN is passed as a route variable.
 
-“/book/isbn”
+“/book/``<isbn>``”
     
 The book route uses the login_required wrapper function so that only users who are logged in are able to access the book page. This route is called if the user clicks on a book listed in the results of a search or if the route is manually typed into the browser with a valid ISBN passed as the route variable. If an invalid ISBN is manually entered then the function will render error.html with an error message explaining that the ISBN was not found. If a post request is made containing a value named review (upon submission of the book review form) then the function fetches the book id for the routes ISBN value and the user id for the session user and inserts these values along with the submitted review data into the reviews table. The user is then redirected to “/submitted”. Otherwise the function uses the ISBN value to fetch the book details from the books table, any reviews for that book from the reviews table (with a limit of two rows fetched) and the Goodreads API review data. A check is made to see if the current user has reviewed the book already which determines if a variable called ‘reviewed’ is set to true or false and this will determine whether the book review form is displayed when the book.html page is rendered. Once all the book and review data have been retrieved the book.html page is rendered with the book/review data passed as arguments. 
 
@@ -92,7 +92,7 @@ The book route uses the login_required wrapper function so that only users who a
 
 This is the route used when a review is successfully submitted and renders the reviewed.html page.
 
-“/reviews/isbn”
+“/reviews/``<isbn>``”
     
 The reviews route uses the login_required wrapper function so that only users who are logged in are able to access the reviews page. This page is rendered if the user clicks on ‘see all reviews’ on the book.html page (when a book has more than two reviews) or if the route is manually typed into the browser with a valid ISBN passed as the route variable. If an invalid ISBN is manually entered then the function will render error.html with an error message explaining that there were no reviews found for that ISBN. The function uses the ISBN to fetch the book details from the books table and any reviews for that book from the reviews table. The reviews.html is then rendered with the book/review data is passed as arguments.
 
@@ -100,11 +100,11 @@ The reviews route uses the login_required wrapper function so that only users wh
 
 The myreviews route uses the login_required wrapper function so that only users who are logged in are able to access the myreviews page. This page is rendered if the user clicks on ‘my reviews’ item on their header navigation bar. The function will fetch all reviews left by the current user and pass them as an argument when rendering the reviewedby.html page.
 
-“/reviewedby/username”
+“/reviewedby/``<username>``”
     
 The reviewedby route uses the login_required wrapper function so that only users who are logged in are able to access the reviewedby page. This page displays all reviews left by a particular user and is rendered when a reviewer name is clicked on any page that displays user reviews or if the route is manually entered into the browser with a valid username passed as the route variable. If an invlaid username is manually entered then the function will render error.html with a ‘404 not found’ message. Otherwise the username is used to fetch all reviews by that user and they are passed as an argument when the reviewdby.html page is rendered.
 
-“/api/isbn”
+“/api/``<isbn>``”
     
 The api route is used to return a JSON object containing details of a book matching the ISBN passed as the route variable. This route is accessed by manually typing the route and an ISBN into the browser. If no rows are fetched from the books table then the function will render error.html with a ‘404 not found’ message. Otherwise the function returns a JSON object by using the jsonify function the pair keys with the values retrieved from the database.
 
