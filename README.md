@@ -111,7 +111,7 @@ The reviewedby route uses the login_required wrapper function so that only users
 ``/api/<isbn>``
     
 The api route is used to return a JSON object containing details of a book matching the ISBN passed as the route variable. This route is accessed by manually typing the route and an ISBN into the browser. If no rows are fetched from the books table then the function will render error.html with a ‘404 not found’ message. Otherwise the function returns a JSON object by using the jsonify function the pair keys with the values retrieved from the database.
-
+<br/>
 
 Additional Python files
 
