@@ -35,7 +35,6 @@ Screencast presentation: https://youtu.be/mYGERBonF4w
 
 •	API Access: If users make a GET request to the website’s /api/<isbn> route, where <isbn> is an ISBN number, the website should return a JSON response containing the book’s title, author, publication date, ISBN number, review count, and average score. The resulting JSON should follow the format:
     
-``
 {
 
     "title": "Memory",
@@ -51,7 +50,6 @@ Screencast presentation: https://youtu.be/mYGERBonF4w
     "average_score": 5.0
     
 }
-``
 
 •	If the requested ISBN number isn’t in the database, the website should return a 404 error.
 
